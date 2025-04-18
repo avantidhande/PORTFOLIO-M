@@ -1,0 +1,143 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* Navbar.css */
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 50px;
+  background-color: #fff;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 600;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover {
+  color: #007bff;
+}
+
+/* Menu icon hidden on desktop */
+.menu-icon {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+}
+
+/* Responsive styling */
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 60px;
+    right: -100%;
+    flex-direction: column;
+    background-color: #fff;
+    width: 200px;
+    height: calc(100vh - 60px);
+    padding: 20px;
+    gap: 20px;
+    box-shadow: -2px 0 5px rgba(0,0,0,0.1);
+    transition: right 0.3s ease-in-out;
+  }
+
+  .nav-links.open {
+    right: 0;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+}
+
+
+/* resume button */
+/* existing styles kept the same above */
+
+.resume-btn {
+  position: relative;
+  padding: 10px 20px;
+  background: transparent;
+  border: 2px solid #007bff;
+  border-radius: 20px;
+  color: #007bff;
+  font-weight: 500;
+  text-decoration: none;
+  overflow: hidden;
+  transition: color 0.4s ease-in-out;
+}
+
+.resume-btn::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 0%;
+  width: 100%;
+  background: #007bff;
+  z-index: -1;
+  transition: height 0.4s ease-in-out;
+}
+
+.resume-btn:hover {
+  color: white;
+}
+
+.resume-btn:hover::before {
+  height: 100%;
+}
+
+/* Hide mobile resume button on desktop */
+.resume-btn.mobile {
+  display: none;
+}
+
+/* Show desktop resume button inline */
+.resume-btn.desktop {
+  margin-left: 20px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .resume-btn.desktop {
+    display: none;
+  }
+
+  .resume-btn.mobile {
+    display: block;
+    border: none;
+    padding: 10px 0;
+    color: #007bff;
+    background: none;
+    font-size: 16px;
+  }
+
+  .resume-btn.mobile:hover {
+    color: #0056b3;
+  }
+}
